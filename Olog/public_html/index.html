@@ -26,34 +26,70 @@
 		<div class="navbar-inner">
 			<div class="container">
 
+				<a class="btn btn-navbar nav-button">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
 				<a class="brand" href="index.html">Olog <span class="version"></span></a>
 
-				<ul class="nav">
-					<li class="divider-vertical"></li>
-				</ul>
+				<div class="nav-collapse collapse">
 
-				<div id="add_btn_group" style="z-index: -1;" class="btn-group">
-					<button id="new_log" class="btn btn-primary"><i class="icon-plus icon-white"></i> Log Entry</button>
-					<button id="new_logbook_and_tag" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a onclick="showAddModal('myModal');"><i class="icon-plus"></i> Logbook</a></li>
-						<li><a onclick="showAddModal('myTagModal');"><i class="icon-plus"></i> Tag</a></li>
+					<ul class="nav">
+						<li class="divider-vertical"></li>
 					</ul>
-				</div>
 
-				<span id="top_container" class="pull-right btn-group">
-					<!-- Template -->
-				</span>
+					<div id="add_btn_group" style="z-index: -1;" class="btn-group">
+						<button id="new_log" class="btn btn-primary new_log"><i class="icon-plus icon-white"></i> Log Entry</button>
+						<button id="new_logbook_and_tag" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a onclick="showAddModal('myModal');"><i class="icon-plus"></i> Logbook</a></li>
+							<li><a onclick="showAddModal('myTagModal');"><i class="icon-plus"></i> Tag</a></li>
+						</ul>
+					</div>
+
+					<span id="top_container" class="pull-right btn-group top_container">
+						<!-- Template -->
+					</span>
+				</div>
 
 			</div>
 		</div>
 	</div>
 
 	<div>
+		<div class="help-backgroud-dim"></div>
+
 		<!-- Left navigation -->
 		<div class="container-left">
+
+			<div class="help-close-block">
+				<span class="help-close-icon"><i class="icon-remove-sign pull-right"></i></span>
+			</div>
+
+			<div class="help-user-block">
+				<span id="help-login-button">
+					<span class="icon-user"></span> <span class="help-user-name">Guest</span> <span id="help-login-chevron" class="icon-chevron-down"></span>
+				</span>
+			</div>
+
+			<div id="help-add-buttons" class="btn-group">
+				<button class="btn new_log"><i class="icon-plus"></i> Log Entry</button>
+				<button class="btn dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a onclick="showAddModal('myModal');"><i class="icon-plus"></i> Logbook</a></li>
+					<li><a onclick="showAddModal('myTagModal');"><i class="icon-plus"></i> Tag</a></li>
+				</ul>
+			</div>
+
+			<div id="help-login-form" class="top_container2">
+				<!-- Template -->
+			</div>
+
 			<div id="load_filters" class="well container-scroll">
 				<div class="log_title">
 					<h5>Filter Log Entries</h5>

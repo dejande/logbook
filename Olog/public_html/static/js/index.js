@@ -12,29 +12,25 @@ $(document).ready(function(){
 	resizeManager();
 
 	// Set datepickers
-	$('#datepicker_from').datetimepicker(
-		{
-			changeMonth: true,
-			changeYear: true,
-			dateFormat: datePickerDateFormat,
-			firstDay: datePickerFirstName,
-			onClose: function(e){
-				fromToChanged();
-			}
+	$('#datepicker_from').datetimepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: datePickerDateFormat,
+		firstDay: datePickerFirstName,
+		onClose: function(e){
+			fromToChanged();
 		}
-	);
+	});
 
-	$('#datepicker_to').datetimepicker(
-		{
-			changeMonth: true,
-			changeYear: true,
-			dateFormat: datePickerDateFormat,
-			firstDay: datePickerFirstName,
-			onClose: function(e){
-				fromToChanged();
-			}
+	$('#datepicker_to').datetimepicker({
+		changeMonth: true,
+		changeYear: true,
+		dateFormat: datePickerDateFormat,
+		firstDay: datePickerFirstName,
+		onClose: function(e){
+			fromToChanged();
 		}
-	);
+});
 
 	// Select include hostory
 	$('#search-checkbox').prop('checked', ologSettings.includeHistory);
@@ -67,7 +63,7 @@ $(document).ready(function(){
 	}
 
 	// Creante new Log
-	$('#new_log').click(function(e){
+	$('.new_log').click(function(e){
 		window.location.href = "new_log.html";
 	});
 
@@ -108,13 +104,31 @@ $(document).ready(function(){
 	// Activate mechanism for automatically loading new logs
 	loadLogsAutomatically();
 
+	$('#help-login-button').unbind('click');
+
+	$('#help-login-button').click(function() {
+		l("toggle");
+		$('.user_dropdown_menu').toggle();
+		$('.user_dropdown_menu2').toggle();
+		$('#load_filters').toggle();
+		$('#help-login-chevron').toggleClass('icon-chevron-down icon-chevron-up');
+		$('#help-add-buttons').toggle();
+	});
+
 	// Check if user is logged in and act accordingly
 	if(getUserCreadentials() === null) {
 
 		// Show sign in form
 		var template = getTemplate('template_logged_out');
 		var html = Mustache.to_html(template, {"user": "Guest"});
-		$('#top_container').html(html);
+		$('.help-user-name').html("Guest");
+
+		if($('#help-login-form').is(':visible')) {
+			$('.top_container2').html(html);
+
+		} else {
+			$('.top_container').html(html);
+		}
 		login();
 		disableCreatingNewAndModifying();
 
@@ -125,7 +139,15 @@ $(document).ready(function(){
 		// Set user and sign out link
 		var template = getTemplate('template_logged_in');
 		var html = Mustache.to_html(template, {"user": firstLetterToUppercase(credentials["username"])});
-		$('#top_container').html(html);
+		$('.help-user-name').html(firstLetterToUppercase(credentials["username"]));
+
+		if($('#help-login-form').is(':visible')) {
+			$('.top_container2').html(html);
+
+		} else {
+			$('.top_container').html(html);
+		}
+
 		enableCreatingAndModifying();
 	}
 

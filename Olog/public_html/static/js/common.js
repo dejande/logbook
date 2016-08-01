@@ -95,6 +95,24 @@ $(document).ready(function(){
 
 	// Start listening for expand/collapse filters
 	startListeningForToggleFilterClicks();
+
+	// Close help panel in mobile view
+	$('.help-close-icon').unbind('click');
+
+	$('.help-close-icon').click(function() {
+		$('.help-backgroud-dim').hide();
+		$('.container-left').hide();
+		$('#user_login_dropdown').hide();
+	});
+
+	// Show help panel in mobile view
+	$('.nav-button').unbind('click');
+
+	$('.nav-button').click(function() {
+		$('.help-backgroud-dim').show();
+		$('.container-left').show();
+		$('#user_login_dropdown').show();
+	});
 });
 
 /**
@@ -321,6 +339,7 @@ function disableCreatingNewAndModifying() {
 	$('#new_logbook_and_tag').addClass("disabled");
 	$('#new_logbook_and_tag').attr("disabled", true);
 	$('#modify_log_link').hide();
+	$('#help-add-buttons').hide();
 }
 
 /**
@@ -332,6 +351,7 @@ function enableCreatingAndModifying() {
 	$('#new_log').attr("disabled", false);
 	$('#new_logbook_and_tag').removeClass("disabled");
 	$('#new_logbook_and_tag').attr("disabled", false);
+	$('#help-add-buttons').show();
 }
 
 /**

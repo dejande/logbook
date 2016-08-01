@@ -1184,6 +1184,7 @@ function decode64(input) {
  * the form and check user credentials by analysing server response.
  */
 function login() {
+	l("login");
 
 	/**
 	* Disable closing the login dropdown if user clicks on login form elements
@@ -1199,15 +1200,16 @@ function login() {
 
 	$('#user_login_dropdown').click(function(){
 		$('.user_dropdown_menu').ready(function(){
-			$('#user_username').focus();
+			$('.user_username').focus();
 		});
 	});
 
-	$('#user_submit_form').on('submit', function(e){
+	$('.user_submit_form').on('submit', function(e){
 		e.preventDefault();
+		l($('.user_username')[0]);
 
-		var username = $('#user_username').val();
-		var password = $('#user_password').val();
+		var username = $('.user_username:first').val();
+		var password = $('.user_password:first').val();
 
 		$.ajax( {
 			type: "POST",
@@ -1223,19 +1225,23 @@ function login() {
 				400: function(){
 					saveUserCredentials(username, password);
 					l("User logged in");
+					window.location.href = firstPageName;
+				},
+				401: function(){
+					$('.login_error').show('fast');
 				},
 				404: function(){
-					$('#login_error').show('fast');
+					$('.login_error').show('fast');
 				}
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
-
+				$('.login_error').show('fast');
+				l(username + ":" + password);
 			},
 			success : function(model) {
-
+				window.location.href = firstPageName;
 			}
 		});
-		window.location.href = firstPageName;
 	});
 }
 

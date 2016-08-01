@@ -97,26 +97,88 @@ html, body {
 	margin: 0px;
 }
 
+.nav-button {
+	float: left !important;
+}
+
 @media (max-width: 1023px) {
 
+	.user_dropdown_menu {
+		left: 10px !important;
+		right: 10px;
+		top: 60px;
+	}
+
+	.user_dropdown_menu2 {
+		left: 10px !important;
+		right: 10px;
+		top: 60px;
+	}
+
+	#user_login_dropdown {
+		display: none;
+	}
+
+	#user_login_dropdown2 {
+		display: none;
+	}
+
+	.help-close-block {
+		height: 15px;
+	}
+
+	.help-close-icon {
+		cursor: pointer;
+	}
+
+	.help-user-block {
+		border-bottom: 1px solid black;
+		margin-bottom: 15px;
+	}
+
+	#help-add-buttons {
+		margin-bottom: 15px;
+	}
+
+	.help-backgroud-dim {
+		display: none;
+		position: fixed;
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 0px;
+		z-index: 250;
+		background-color: black;
+		overflow: hidden;
+		opacity: 0.5;
+	}
+
 	.container-left {
-		float: none;
-		padding: 0px 20px 20px 20px;
+		display: none;
+		position: fixed;
+		z-index: 300;
+		padding: 10px 10px 10px 10px;
+		width: 70%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		background-color: white;
+		overflow: auto;
 	}
 
 	.container-middle {
 		float: none;
-		padding: 0px 20px 20px 20px;
+		padding: 0px 10px 10px 10px;
 	}
 
 	.container-right {
 		float: none;
-		padding: 0px 20px 20px 20px;
+		padding: 0px 10px 10px 10px;
 	}
 
 	.container-middle-right {
 		float: none;
-		padding: 0px 20px 20px 20px;
+		padding: 0px 10px 10px 10px;
 	}
 
 	/*
@@ -142,9 +204,29 @@ html, body {
 	#back_to_top_button > i {
 		margin-top: 15px;
 	}
+
+	.nav {
+		display: none !important;
+	}
 }
 
 @media (min-width: 1024px) {
+
+	.help-close-icon {
+		display: none;
+	}
+
+	.help-user-block {
+		display: none;
+	}
+
+	#help-add-buttons {
+		display: none !important;
+	}
+
+	#help-login-form {
+		display: none;
+	}
 
 	.container-resize {
 		position: fixed;
